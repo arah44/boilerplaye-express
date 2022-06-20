@@ -11,6 +11,8 @@ app.use("/public", express.static(__dirname + "/public"))
 app.use("/now", (req, res, next) => {
   req.time = new Date().toString();
   next();
+}, (req, res) => {
+  res.send({time: req.time});
 })
 
 
@@ -18,9 +20,7 @@ app.get("/", (req, res) => (
   res.sendFile(__dirname + "/views/index.html")
 ))
 
-app.get("/now", (req, res) => {
-  res.json({time: req.time})
-})
+app.get("/now")
 
 app.get("/json", (req, res) => {
   let message = "Hello json";
