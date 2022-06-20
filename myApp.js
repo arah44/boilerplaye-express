@@ -30,6 +30,9 @@ app.get("/json", (req, res) => {
   return res.json({"message": message});
 });
 
+app.get("/:word/echo", (req, res) => {
+  res.json({echo: req.params.word})
+})
 
 
 
