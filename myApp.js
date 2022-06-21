@@ -47,6 +47,12 @@ app.route('/name')
       name: first + ' ' + last
     })
   })
+  .post((req, res) => {
+    const { first, last } = req.body;
+    res.json({
+      name: first + ' ' + last
+    })
+  })
 
 
 
